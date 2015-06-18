@@ -1,15 +1,15 @@
 <ul>
     <% blog.articles[0...5].each do |article| %>
       <li>
-        <article class="post">
-          <div class="post-thumb">
-            <img src="posts/<%= article.data.featured %>">
+        <article class="post project">
+          <div class="post-thumb project-thumb">
+            <img src="<%= article.data.featured_image %>">
           </div>
-          <div class="post-blurb">
+          <div class="post-blurb project-blurb">
           <h2 class="side-header">
             <%= article.title %>
           </h2>
-          <%= Nokogiri::HTML(article.summary).text %>
+          <%= Nokogiri::HTML(article.summary) %>
           <a href="<%= article.url %>">Read more</a>
           </div>
         </article>

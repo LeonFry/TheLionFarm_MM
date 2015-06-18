@@ -24,9 +24,10 @@ end
 # Blog Config
 
 activate :blog do |blog|
-  blog.prefix = "blog"
+  blog.name = "posts"
+  blog.prefix = "posts"
   blog.layout = "blog"
-  # blog.permalink = "{title}.html"
+  blog.permalink = "{title}.html"
   # Matcher for blog source files
   # blog.sources = "{year}-{month}-{day}-{title}.html"
   # blog.taglink = "tags/{tag}.html"
@@ -42,7 +43,46 @@ activate :blog do |blog|
   blog.per_page = 10
   blog.page_link = "page/{num}"
 end
-
+activate :blog do |blog|
+  blog.name = "projects"
+  blog.prefix = "projects"
+  blog.layout = "blog"
+   blog.permalink = "{title}.html"
+  # Matcher for blog source files
+  # blog.sources = "{year}-{month}-{day}-{title}.html"
+  # blog.taglink = "tags/{tag}.html"
+  blog.summary_separator = /READMORE/
+  blog.summary_length = 200
+  # blog.year_link = "{year}.html"
+  # blog.month_link = "{year}/{month}.html"
+  # blog.day_link = "{year}/{month}/{day}.html"
+  blog.default_extension = ".html.markdown"
+  # blog.tag_template = "tag.html"
+  # blog.calendar_template = "calendar.html"
+  blog.paginate = true
+  blog.per_page = 10
+  blog.page_link = "page/{num}"
+end
+activate :blog do |blog|
+  blog.name = "store"
+  blog.prefix = "store"
+  blog.layout = "layout"
+  # blog.permalink = "{title}.html"
+  # Matcher for blog source files
+  # blog.sources = "{year}-{month}-{day}-{title}.html"
+  # blog.taglink = "tags/{tag}.html"
+  blog.summary_separator = /READMORE/
+  blog.summary_length = 200
+  # blog.year_link = "{year}.html"
+  # blog.month_link = "{year}/{month}.html"
+  # blog.day_link = "{year}/{month}/{day}.html"
+  blog.default_extension = ".html.markdown"
+  # blog.tag_template = "tag.html"
+  # blog.calendar_template = "calendar.html"
+  blog.paginate = false
+  # blog.per_page = 10
+  # blog.page_link = "page/{num}"
+end
 page "/feed.xml", layout: false
 
 # Directory Settings
