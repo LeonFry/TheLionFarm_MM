@@ -15,7 +15,23 @@ blog: store
 		<section class="about-box">
 	        <h2>The Lion Farm store</h2>
 	        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at efficitur felis. Curabitur ornare pulvinar quam, ut pellentesque tortor pulvinar eget. Proin est felis, molestie vel scelerisque id, tempor quis dolor. </p>
-			<%= partial 'components/product-list' %>
-		</section>
+	    </section>
+		<section class="post-list product-list">
+		  <ul>
+		    <% blog.articles[0...50].each do |article| %>
+		      <li>
+		        <article class="post product side-section">
+		          <h2 class="side-header"><%= article.title %></h2>
+		          <div class="side-content">
+		            <div class="post-thumb project-thumb">
+		              <img src="<%= article.data.featured_image %>">
+		            </div>
+		            <%= Nokogiri::HTML(article.summary) %>
+		          </div>
+		        </article>
+		      </li>
+		    <% end %>
+		  </ul>
+		</section>		
 	</div>
 </div>

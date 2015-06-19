@@ -12,6 +12,25 @@ blog: projects
 <div class="site-wrapper">
 	<%= partial 'components/navbar-projects' %>
 	<div class="page-body">
-		<%= partial 'components/project-list' %>
+		<section class="post-list project-list">
+		  <ul>
+		    <% blog.articles[0...5].each do |article| %>
+		      <li>
+		        <article class="post project">
+		          <div class="post-thumb project-thumb">
+		            <img src="<%= article.data.featured_image %>">
+		          </div>
+		          <div class="post-blurb project-blurb">
+		          <h2 class="side-header">
+		            <%= article.title %>
+		          </h2>
+		          <%= Nokogiri::HTML(article.summary) %>
+		          <a href="<%= article.url %>">Read more</a>
+		          </div>
+		        </article>
+		      </li>
+		    <% end %>
+		  </ul>
+		</section>
 	</div>
 </div>

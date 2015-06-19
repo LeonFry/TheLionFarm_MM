@@ -6,7 +6,26 @@ blog: posts
 	<%= partial 'components/splash' %>
 	<%= partial 'components/navbar' %>
 	<div class="page-body">
-		<%= partial 'components/post-list' %>
+		<section class="post-list">
+		  <ul>
+		    <% blog.articles[0...5].each do |article| %>
+		      <li>
+		        <article class="post">
+		          <div class="post-thumb">
+		            <img src="posts/<%= article.data.featured %>">
+		          </div>
+		          <div class="post-blurb">
+		          <h2 class="side-header">
+		            <%= article.title %>
+		          </h2>
+		          <%= Nokogiri::HTML(article.summary).text %>
+		          <a href="<%= article.url %>">Read more</a>
+		          </div>
+		        </article>
+		      </li>
+		    <% end %>
+		  </ul>
+		</section>
 		<%= partial 'components/sidebar' %>
 	</div>
 </div>
