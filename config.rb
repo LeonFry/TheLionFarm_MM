@@ -99,6 +99,6 @@ configure :build do
   # activate :asset_hash
   activate :directory_indexes
   activate :gzip
-  activate :imageoptim, pngout: false
+  activate :imageoptim, pngout: false, svgo: false
   activate :relative_assets
 end
